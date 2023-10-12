@@ -13,8 +13,8 @@ function App() {
       .then(res => res.json())
       .then(hostArr => {
         setAllHosts(hostArr)
-      }, [])
-  })
+      })
+  }, [])
 
   function handleSetSelectedHost(host) {
     setSelectedHost(host)
