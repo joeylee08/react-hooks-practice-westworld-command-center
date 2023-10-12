@@ -1,18 +1,25 @@
 import React from "react";
 import "../stylesheets/Area.css";
+import Host from "./Host";
 
-function Area() {
+function Area({area, activeHosts, handleSetSelectedHost}) {
+  const formattedName = area.name
+            .split("_")
+            .map(item => item[0].toUpperCase() + item.slice(1))
+            .join(" ")
+
+  const hostsInArea = activeHosts.filter(item => item.area === area.name)
+
+  const mapped = hostsInArea.map((item, idx) => {
+    return <Host key={idx} host={item} handleSetSelectedHost={handleSetSelectedHost} />
+  })
+
   return (
-    <div
-      className="area"
-      id={
-        /* Pass in the area name here to make sure this is styled correctly */ "id"
-      }
-    >
+    <div className="area" id={area.name}>
       <h3 className="labels">
-        {/* Don't just pass in the name from the data...clean that thing up */}
+        {formattedName}
       </h3>
-      {/* See Checkpoint 1 item 2 in the Readme for a clue as to what goes here */}
+        {mapped}
     </div>
   );
 }

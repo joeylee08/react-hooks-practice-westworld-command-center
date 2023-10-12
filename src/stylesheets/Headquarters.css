@@ -31,3 +31,10 @@ pre {
 .notify {
   color: black;
 }
+
+.coldStorage {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
